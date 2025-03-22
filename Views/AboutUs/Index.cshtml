@@ -1,0 +1,48 @@
+﻿@model AboutUsViewModel
+
+<div class="container mt-3">
+    <h1 class="text-center" style="color: #ff1493; font-weight: bold;">About Us</h1>
+    <p class="lead text-center" style="color: #ff1493;">
+        Welcome to our Beauty Parlour Management System, a smart and efficient solution designed to simplify salon operations. Our platform allows beauty parlours to manage appointments, track customer records, manage services and products all in one place. This parlour provides huge facilities with advanced technology equipments and best quality service. Here we offer the best treatment you might have never experienced before. Whether you're a salon owner or a client looking for hassle-free bookings, our system ensures convenience, efficiency, and satisfaction.😊
+    </p>
+
+    <!-- Services Section -->
+    <div class="mt-5">
+        <h2 class="text-center" style="color: #ff1493;">Our Beauty Services</h2>
+        <div class="row">
+            @foreach (var service in Model.Services)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-4">
+                        <h4 class="text-dark">@service.ServiceName</h4>
+                        <p>@service.ServiceDescription</p>
+                        <p class="fw-bold text-primary">RM @service.ServiceCost.ToString("0.00")</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div class="mt-5">
+        <h2 class="text-center" style="color: #ff1493;">Our Beauty Products</h2>
+        <div class="row">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center p-4">
+                        <h4 class="text-dark">@product.ProductName</h4>
+                        <p>@product.ProductDescription</p>
+                        <p class="fw-bold text-primary">RM @product.ProductCost.ToString("0.00")</p>
+                        <p class="text-muted">Stock: @product.StockQuantity</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a class="btn btn-primary mx-2" asp-controller="Home" asp-action="Index">Back to Home</a>
+        <a class="btn btn-primary mx-2" asp-controller="FAQ" asp-action="Index">Visit FAQ</a>
+    </div>
+</div>
